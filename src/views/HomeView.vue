@@ -18,7 +18,7 @@
           <h3>{{ product.name }}</h3>
           <p>Price: {{ product.price }}</p>
           <p>Description: {{ product.description }}</p>
-          <p>Category ID: {{ product.category.id }}</p>
+          <p v-for="category in product.category">Category: {{ category?.name }}</p>
         </li>
       </ul>
     </div>
@@ -29,7 +29,8 @@
         <template v-for="category in categories" :key="category.id">
           <li>{{ category.name }}</li>
           <ul>
-            <li v-for="child in category.children" :key="child.id">
+           
+            <li v-for="child in category.childrens" :key="child.id">
               {{ child.name }}
             </li>
           </ul>
